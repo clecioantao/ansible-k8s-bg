@@ -1,0 +1,4 @@
+- name: Switch active version in service
+  kubernetes.core.k8s:
+    state: present
+    definition: "{{ lookup('template', 'service-switch.yaml.j2') }}"

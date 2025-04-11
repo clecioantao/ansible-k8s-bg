@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ app_name }}-blue
+spec:
+  replicas: {{ replicas }}
+  selector:
+    matchLabels:
+      app: {{ app_name }}
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: {{ app_name }}
+        version: blue
+    spec:
+      containers:
+      - name: {{ app_name }}
+        image: {{ image_name }}
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_VERSION
+          value: "blue"

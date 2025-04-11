@@ -1,0 +1,13 @@
+---
+- name: Deploy blue-green application on Kubernetes
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    app_name: "flask-app-ansible"
+    image_name: "flask-app-ansible:latest"
+    namespace: "default"
+    replicas: 2
+
+  roles:
+    - k8s_deploy

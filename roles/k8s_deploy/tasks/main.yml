@@ -1,0 +1,18 @@
+---
+- name: Deploy blue version
+  kubernetes.core.k8s:
+    state: present
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('template', 'deployment-blue.yaml.j2') }}"
+
+- name: Deploy green version
+  kubernetes.core.k8s:
+    state: present
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('template', 'deployment-green.yaml.j2') }}"
+
+- name: Deploy service
+  kubernetes.core.k8s:
+    state: present
+    namespace: "{{ namespace }}"
+    definition: "{{ lookup('template', 'service.yaml.j2') }}"

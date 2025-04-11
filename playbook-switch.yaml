@@ -1,0 +1,12 @@
+---
+- name: Switch blue-green deployment
+  hosts: localhost
+  gather_facts: no
+
+  vars:
+    app_name: "flask-app-ansible"
+    active_version: "green"  # ou "blue"
+    namespace: "default"
+
+  roles:
+    - k8s_switch

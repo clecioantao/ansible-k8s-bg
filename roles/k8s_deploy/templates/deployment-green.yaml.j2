@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ app_name }}-green
+spec:
+  replicas: {{ replicas }}
+  selector:
+    matchLabels:
+      app: {{ app_name }}
+      version: green
+  template:
+    metadata:
+      labels:
+        app: {{ app_name }}
+        version: green
+    spec:
+      containers:
+      - name: {{ app_name }}
+        image: {{ image_name }}
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8080
+        env:
+        - name: APP_VERSION
+          value: "green"
