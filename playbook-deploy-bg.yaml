@@ -5,7 +5,7 @@
 
   vars:
     app_name: "flask-app-ansible"
-    image_name: "flask-app-ansible:latest"
+    image_name: "clecio/flask-app-ansible:latest"
     namespace: "default"
     replicas: 2
 
